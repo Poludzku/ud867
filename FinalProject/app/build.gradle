@@ -25,13 +25,31 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [appName: "Build it Bigger"]
+        }
+        debug {
+
+            manifestPlaceholders = [appName: "BiB"]
         }
     }
 
     productFlavors {
-        free
-        premium
-        freemium
+        free {
+            applicationId "com.udacity.gradle.builditbigger.freevarient"
+            minSdkVersion 16
+            targetSdkVersion 25
+            versionCode 1
+            versionName "1.0"
+            manifestPlaceholders = [flavorName: " Free"]
+        }
+        premium {
+            applicationId "com.udacity.gradle.builditbigger.paidvarient"
+            minSdkVersion 16
+            targetSdkVersion 25
+            versionCode 1
+            versionName "1.0"
+            manifestPlaceholders = [flavorName: ""]
+        }
     }
 }
 
@@ -41,6 +59,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.1.1'
-    compile 'com.google.android.gms:play-services-ads:10.0.1'
+    freeCompile 'com.google.android.gms:play-services-ads:10.0.1'
     compile project(':joke-dispenser')
+
 }
