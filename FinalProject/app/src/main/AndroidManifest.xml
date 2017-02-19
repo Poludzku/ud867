@@ -12,7 +12,6 @@
         android:label="${appName}${flavorName}"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
         <activity
             android:name=".MainActivity"
             android:label="${appName}${flavorName}">
